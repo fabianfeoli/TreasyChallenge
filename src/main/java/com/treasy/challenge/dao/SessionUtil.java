@@ -25,9 +25,11 @@ public class SessionUtil {
     	if (null != jdbcDbUrl) {
     	  jdbcUrlSettings.put("hibernate.connection.url", System.getenv("JDBC_DATABASE_URL"));
     	}
-
+  	  	jdbcUrlSettings.put("hibernate.connection.driver_class", "org.postgresql.Driver");
+  	  	jdbcUrlSettings.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+  	  	jdbcUrlSettings.put("hibernate.hbm2ddl.auto", "create");
+  	  
     	ServiceRegistry registry = new StandardServiceRegistryBuilder().
-    	    configure("hibernate.cfg.xml").
     	    applySettings(jdbcUrlSettings).
     	    build();
     	

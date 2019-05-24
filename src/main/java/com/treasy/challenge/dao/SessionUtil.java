@@ -21,7 +21,7 @@ public class SessionUtil {
     @SuppressWarnings("deprecation")
 	private SessionUtil(){
     	Map<String,String> jdbcUrlSettings = new HashMap<>();
-    	String jdbcDbUrl = System.getenv("JDBC_DATABASE_URL");
+    	String jdbcDbUrl = System.getenv("DATABASE_URL");
     	if (null != jdbcDbUrl) {
     	  jdbcUrlSettings.put("hibernate.connection.url", System.getenv("JDBC_DATABASE_URL"));
     	}

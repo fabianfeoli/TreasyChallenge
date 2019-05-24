@@ -23,7 +23,7 @@ public class SessionUtil {
     	Map<String,String> jdbcUrlSettings = new HashMap<>();
     	String jdbcDbUrl = System.getenv("DATABASE_URL");
     	if (null != jdbcDbUrl) {
-    	  jdbcUrlSettings.put("hibernate.connection.url", System.getenv("JDBC_DATABASE_URL"));
+    	  jdbcUrlSettings.put("hibernate.connection.url", System.getenv("DATABASE_URL"));
     	}
   	  	jdbcUrlSettings.put("hibernate.connection.driver_class", "org.postgresql.Driver");
   	  	jdbcUrlSettings.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");

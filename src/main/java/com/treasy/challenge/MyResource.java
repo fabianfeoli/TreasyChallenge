@@ -12,8 +12,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
  
-import com.treasy.challenge.dao.Employee;
-import com.treasy.challenge.dao.EmployeeDAO;
 import com.treasy.challenge.dtos.NodeArray;
 import com.treasy.challenge.dtos.NodeComHasChild;
 import com.treasy.challenge.dtos.NodeSemId;

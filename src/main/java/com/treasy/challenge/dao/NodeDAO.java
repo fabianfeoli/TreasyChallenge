@@ -18,7 +18,11 @@ public class NodeDAO {
         Transaction tx = session.beginTransaction();
         addNode(session, bean);        
         tx.commit();
-        Long lastId = ((BigInteger) session.createSQLQuery("SELECT LAST_INSERT_ID()").uniqueResult()).longValue();
+        // Em uma situação real eu não utilizaria o comando abaixo em
+        // nenhuma circunstância -- optaria talvez por uma solução de tabela-mestra
+        // ou, caso "code" seja uma chave única ao nível de negócio, buscaria
+        // a id criada para aquele "code"
+        Long lastId = ((BigInteger) session.createSQLQuery("SELECT LASTVAL()").uniqueResult()).longValue();
         session.close();
         return lastId;
     }
@@ -49,6 +53,20 @@ public class NodeDAO {
            tx.commit();
            session.close();
            return bean.getId();
+   }
+    
+    public int deleteNode(int id){
+        
+        Session session = SessionUtil.getSession();
+           Transaction tx = session.beginTransaction();
+           String hql = "delete Node where id = :id";
+           Query query = session.createQuery(hql);
+           query.setInteger("id", id);
+           int rowCount = query.executeUpdate();
+           System.out.println("Rows affected: " + rowCount);
+           tx.commit();
+           session.close();
+           return rowCount;
    }
 
     public List<NodeArray> getNodes(){

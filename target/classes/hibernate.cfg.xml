@@ -4,12 +4,15 @@
 <hibernate-configuration>
  <session-factory name="hibernateSessionFactory">
   <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+  <property name="hibernate.connection.password">ab9f0b65fcf70e2707965a6bdcc19a06116b5bf2939295e8d495fc4db101b6f1</property>
+  <property name="hibernate.connection.url">jdbc:postgresql://ec2-54-243-197-120.compute-1.amazonaws.com:5432/d4238l2lhc8g0k</property>
+  <property name="hibernate.connection.username">xadnizfcyaqngr</property>
   <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
   <property name="hibernate.show_sql">true</property>
   <property name="hibernate.format_sql">true</property>
-  <property name="hibernate.hbm2ddl.auto">create</property> 
-  
-    <mapping class="com.treasy.challenge.dao.Node"/>
-  
+  <property name="hibernate.hbm2ddl.auto">create</property>
+  <mapping class="com.treasy.challenge.dao.Node"/>
  </session-factory>
 </hibernate-configuration>
+
+

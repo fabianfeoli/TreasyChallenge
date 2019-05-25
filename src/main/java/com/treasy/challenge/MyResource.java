@@ -41,6 +41,7 @@ public class MyResource {
         return dao.updateNode(bean);
     }
 
+    
     @GET
     @Produces("application/json")
     public List<NodeArray> getNodes() {
@@ -56,6 +57,14 @@ public class MyResource {
     public List<NodeComHasChild> getNodes(@PathParam("id") int id){
     	NodeDAO dao = new NodeDAO();
         return dao.getNodes(id);
+    }
+    
+    @DELETE
+    @Path("/{id}")
+    @Produces("application/json")
+    public int deleteNode(@PathParam("id") int id){
+    	NodeDAO dao = new NodeDAO();
+        return dao.deleteNode(id);
     }
 }
  
